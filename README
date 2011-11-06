@@ -1,0 +1,97 @@
+############################################
+		Open MRM System
+############################################
+ 
+---------------------------
+Required Software
+---------------------------
+
+(01)    Java 1.6
+(02)    Mysql Server 5.1
+
+---------------------------
+Required Hardware
+---------------------------
+
+Two HSDPA Dongles.
+(01)	1st Dongle for Connecting to the Internet.
+(02)	2nd Dongle for Sending SMS. (Dont connect it to the Internet. Even close the Mobile Partner or the whatever the Software come with it.)
+
+----------------------------------------------------
+Figuring out the Port number of "SMS Sender Dongle"
+----------------------------------------------------
+
+Simply right click the MyComputer Icon > goto Mange > then Search for Modems > then it will pop up a interface with several tabs.
+Okay then you can simply notice theirs a Name called port. Infront of that theirs the port Number. 
+Note that number it will need to mention in the OpenMRM System > Tools > Modem Configurations.
+
+---------------------------
+Deploying the System
+---------------------------
+
+Changing MySql root Password. (Optional)
+--------------------------------------------
+
+Please Note that By Default we are using "sa" as the root Password for Mysql DB.
+So please Change it when using Open MRM System. 
+Otherwise you can change the Properties file inside the Jar as well.
+
+>   start mysql server (or WAMP)
+mysql> use mysql;
+mysql> update user set password=PASSWORD("sa") where User='root';
+mysql> flush privileges;
+mysql> quit
+
+Dumping the Database.
+--------------------------------------------
+
+>   start mysql server
+
+>   source the database schema. (db_dump.sql)
+        mysql> source <path>/db_dump.sql
+
+>   Using command line, go Inside of System project folder.
+
+>   Run the Main System Jar found in <project>/dist/OpenMRMSys.jar
+
+----------------------------------------------------------------
+SMS Integration Process
+----------------------------------------------------------------
+External Configurations for the JVM on the targeted machine. (Strictly Recommended!)
+[These files can be found in <extras> folder of the Project path.]
+
+Copy the files in the <Extras folder> to your Java Classpath.
+[Normally JDKDIR can be found in > C:\Program Files\Java] So go to that path and do it as said. 
+Detailed Instructions are listed below.
+
+Java Comm Installation <comm dir>
+-----------------------------------
+    File comm.jar should go under JDKDIR/jre/lib/ext/
+    File javax.comm.properties should go under JDKDIR/jre/lib/
+    Library files (i.e. win32com.dll for Win32 or the .so Linux library files) should go under JDKDIR/jre/bin/
+    If you have a separate JRE directory, do the same copies for the JREDIR directory!
+
+RxTx Installation <rxtx dir>
+-----------------------------------
+    File RXTXcomm.jar should go under JDKDIR/jre/lib/ext/
+    The necessary library (e.g.. for Linux 32bit, the librxtxSerial.so) should go under JDKDIR/jre/bin/
+    If you have a separate JRE directory, do the same copies for the JREDIR directory!
+
+-------------------------------------------
+3rd Party Tools Used
+-------------------------------------------
+(01)    Jasper Reporting.
+(02)	SMSLib API.
+(03)	Rome XML Parser. 
+
+-------------------------------------------
+Troubleshoot
+-------------------------------------------
+If an error occured like this "Java.lang.ClassNotFoundException:"
+Copy the Nessasary JARs into below folders and Restart the Application.
+
+Linux
+----- 
+\jre\lib
+\jre\lib\ext
+

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report2" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="74"/>
+	<parameter name="REG" class="java.lang.String"/>
+	<parameter name="ChannelFee" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select  regId, enterBy, issuedate, doctName, specialty, channelData, channelTime, patientName, tpno from Channeling where regId>=$P{REG}]]>
+	</queryString>
+	<field name="regId" class="java.lang.String"/>
+	<field name="enterBy" class="java.lang.String"/>
+	<field name="issuedate" class="java.sql.Timestamp"/>
+	<field name="doctName" class="java.lang.String"/>
+	<field name="specialty" class="java.lang.String"/>
+	<field name="channelData" class="java.lang.String"/>
+	<field name="channelTime" class="java.lang.String"/>
+	<field name="patientName" class="java.lang.String"/>
+	<field name="tpno" class="java.lang.String"/>
+	<group name="Group1">
+		<groupHeader>
+			<band height="33">
+				<textField>
+					<reportElement x="468" y="0" width="81" height="20"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{enterBy}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="403" y="0" width="65" height="20"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[EntryBy :]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Group2">
+		<groupHeader>
+			<band height="32">
+				<staticText>
+					<reportElement x="0" y="8" width="100" height="20"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Channel Date :]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="325" y="8" width="100" height="20"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Channel Time :]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Group3">
+		<groupHeader>
+			<band height="32">
+				<textField>
+					<reportElement x="0" y="0" width="283" height="20"/>
+					<textElement>
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{channelData}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="325" y="0" width="194" height="20"/>
+					<textElement>
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{channelTime}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Group4">
+		<groupHeader>
+			<band height="197">
+				<textField>
+					<reportElement x="100" y="17" width="128" height="20" forecolor="#009933"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{doctName}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="17" width="100" height="20" forecolor="#009933"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Doctor :]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="344" y="17" width="183" height="20" forecolor="#009933"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{specialty}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="244" y="17" width="100" height="20" forecolor="#009933"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ Specialty :]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="100" y="81" width="128" height="20" forecolor="#0033CC"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{patientName}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="81" width="100" height="20" forecolor="#0033CC"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Patient Name :]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="344" y="81" width="194" height="20" forecolor="#0033CC"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{tpno}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="244" y="81" width="100" height="20" forecolor="#0033CC"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Contact :]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="244" y="144" width="100" height="32" forecolor="#FF0000"/>
+					<textElement>
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Charges :]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="344" y="144" width="171" height="32" forecolor="#FF0000"/>
+					<textElement>
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$P{ChannelFee}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699"/>
+				<staticText>
+					<reportElement x="20" y="20" width="344" height="43" forecolor="#FFFFFF"/>
+					<textElement>
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[OPEN MRM
+MEDICAL REPORT MANAGEMENT SYSTEM]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Channeling Bill]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="0" width="63" height="20" forecolor="#00CC33"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reg ID :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="63" y="0" width="100" height="20" forecolor="#00CC33"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{regId}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band/>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band/>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
